@@ -11,9 +11,10 @@ import { HeroService }  from '../hero.service';
   styleUrls: ['./hero-detail.component.css']
 })
 export class HeroDetailComponent implements OnInit {
-  @Input() hero: Hero; //recieves the hero object and displays it
+  hero: Hero; //removed @imput that recieves the hero object and displays it
 
-  constructor(private route: ActivatedRoute,
+  constructor(
+    private route: ActivatedRoute,
     private heroService: HeroService,
     private location: Location) { }
 
