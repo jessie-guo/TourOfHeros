@@ -11,7 +11,7 @@ import { HeroService }  from '../hero.service';
   styleUrls: ['./hero-detail.component.css']
 })
 export class HeroDetailComponent implements OnInit {
-  hero: Hero; //removed @imput that recieves the hero object and displays it
+  hero: Hero; //removed @input that recieves the hero object and displays it
 
   constructor(
     private route: ActivatedRoute,
@@ -29,7 +29,12 @@ export class HeroDetailComponent implements OnInit {
   }
 
   goBack(): void {
-    this.location.back(); // backward one step in the browser's history stack using the Location service
+    this.location.back(); // backward one step in the browser's history stack using the Location service, currently saves
+  }
+
+  save(): void {
+    this.heroService.getHero(this.hero.id) //used get rather than update, two way binding saves the name
+      .subscribe(() => this.goBack());
   }
 
 }
